@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
 import { FaHome, FaAppleAlt, FaTint, FaBullseye, FaDumbbell, FaSignOutAlt } from 'react-icons/fa';  // Updated icons
 import { BsChatLeftText } from 'react-icons/bs';  // Corrected icon import
 
 const Navbar = () => {
     const [isSidebarOpen, setSidebarOpen] = useState(true);
     const [isDropdownOpen, setDropdownOpen] = useState(false);
+    const navigate = useNavigate();
 
     const toggleSidebar = () => {
         setSidebarOpen(!isSidebarOpen);
@@ -13,6 +14,10 @@ const Navbar = () => {
 
     const toggleDropdown = () => {
         setDropdownOpen(!isDropdownOpen);
+    };
+
+    const handleLogout = () => {
+        localStorage.removeItem("token");
     };
 
     return (
@@ -65,7 +70,10 @@ const Navbar = () => {
 
                 <div className="my-4 bg-gray-600 h-[1px]" />
 
-                <Link to="/login" className="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white">
+                <Link to="/login"
+                    onClick={handleLogout}
+                    className="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white"
+                >
                     <FaSignOutAlt />
                     <span className="text-[15px] ml-4 text-gray-200 font-bold">Logout</span>
                 </Link>
