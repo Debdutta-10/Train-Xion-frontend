@@ -9,6 +9,7 @@ import TrackNutrition from './components/TrackNutrition';
 import TrackWater from './components/TrackWater';
 import TrackGoals from './components/TrackGoals';
 import TrackWorkouts from './components/TrackWorkouts';
+import WaterHistory from './components/WaterHistory';
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function MainApp() {
           <Route path="/track-water" element={<TrackWater />} />
           <Route path="/track-goals" element={<TrackGoals />} />
           <Route path="/track-workouts" element={<TrackWorkouts />} />
+          <Route path="/water-history" element={<WaterHistory></WaterHistory>} />
         </Routes>
       </div>
     </>

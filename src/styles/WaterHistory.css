@@ -1,0 +1,31 @@
+.water-history-container {
+    text-align: center;
+    padding: 20px;
+}
+
+.water-h1 {
+    color: #38affe;
+    font-size: 2.6rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.all-histories {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);  /* Default 1 column on mobile */
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+    .all-histories {
+        grid-template-columns: repeat(2, 1fr);  /* 2 columns for tablet view */
+    }
+}
+
+@media (min-width: 1024px) {
+    .all-histories {
+        grid-template-columns: repeat(3, 1fr);  /* 3 columns for desktop view */
+    }
+}

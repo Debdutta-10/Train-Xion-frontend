@@ -1,0 +1,165 @@
+/* .water-container{
+    background-color: #4cb7fe;
+    height: 100vh;
+} */
+
+.water-h1 {
+    color: #38affe;
+    font-size: 2.6rem;
+    text-align: center;
+    font-weight: 500;
+}
+
+.add-water-container {
+    border: 3px solid #4cb7fe;
+    background-color: #32a6f3;
+    color: white;
+    width: 70%;
+    padding: 10px;
+    margin: 20px auto;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.add-water-container h3 {
+    font-size: 1.3rem;
+    text-align: center;
+    margin-bottom: 1px;
+}
+
+.water-input {
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.water-input input {
+    padding: 12px;
+    width: 80%;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #4cb7fe;
+    color: black;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.water-input input::placeholder {
+    color: white;
+    opacity: 0.6;
+}
+
+.water-input input:focus {
+    outline: none;
+    background-color: #38affe;
+    box-shadow: 0px 0px 8px rgba(56, 175, 255, 0.6);
+}
+
+.add-edit-water {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.add-edit-water button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1.7rem;
+    color: white;
+    transition: transform 0.2s ease-in-out;
+}
+
+.add-edit-water button:hover {
+    transform: scale(1.1);
+}
+
+.add-edit-water .add {
+    font-size: 2rem;
+    color: #d7edfd;
+}
+
+.add-edit-water .edit {
+    color: #ff9b38;
+}
+
+.add-edit-water .add:hover {
+    color: #33c1f3;
+}
+
+.add-edit-water .edit:hover {
+    color: #ff7a1f;
+}
+
+.gauge-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    z-index: -1;
+}
+
+.text-blue-600 {
+    color: #33c1f3;
+}
+
+.gauge {
+    position: relative;
+    width: 200px;
+    height: 200px;
+}
+
+.gauge-svg {
+    transform: rotate(-90deg); 
+}
+
+.gauge-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.gauge-text span {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #38affe;
+}
+
+.navigate-button {
+    margin-top: 3% !important;
+    background-color: #38affe; /* Matching the main color */
+    color: white;
+    font-size: 1.2rem;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: auto;
+    margin: auto;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.navigate-button:hover {
+    background-color: #33c1f3; /* Hover color */
+    transform: scale(1.05); /* Slight scale up on hover */
+}
+
+.button-icon {
+    margin-left: 8px; /* Space between text and icon */
+    color: white; /* Icon color */
+}

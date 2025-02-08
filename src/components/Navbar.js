@@ -24,7 +24,7 @@ const Navbar = () => {
                 <BsChatLeftText className="px-2 bg-gray-900 rounded-md" />
             </span>
 
-            <div className={`navbar fixed top-0 bottom-0 lg:left-0 p-2 w-[300px] overflow-y-auto text-center bg-gray-900 ${!isSidebarOpen && 'hidden'}`}>
+            <div className={`navbar fixed top-0 bottom-0 lg:left-0 p-2 w-[300px] overflow-y-auto text-center bg-gray-900 ${!isSidebarOpen && 'hidden'}`} style={{ zIndex: 25 }} >
                 <div className="text-gray-100 text-xl">
                     <div className="p-2.5 mt-1 flex items-center">
                         <h1 className="font-bold text-gray-200 text-[20px] ml-3">Train-Xion</h1>
