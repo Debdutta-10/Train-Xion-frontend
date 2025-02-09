@@ -1,0 +1,131 @@
+/* Main container for the form */
+
+.workout-form-container {
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
+    margin-top: 2%;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.workout-form-title {
+    font-size: 2rem;
+    font-weight: 500;
+    text-align: center;
+    color: #DDA0DD; /* Purple color */
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* Space between icons and the text */
+}
+
+.workout-dumbbell-icon-left, .workout-dumbbell-icon-right {
+    font-size: 2.5rem;  /* Larger icon size */
+    color: #DDA0DD;
+}
+
+.workout-form-icon {
+    margin-right: 10px;
+    color: #DDA0DD;
+}
+
+.workout-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Adds space between form groups */
+    justify-content: space-between;
+}
+
+.workout-form-group {
+    display: flex;
+    flex-direction: column;
+    width: calc(33.33% - 20px); /* Adjusts width of form fields, makes them 3 across */
+}
+
+.workout-container label {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+select,
+textarea {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+textarea {
+    height: 100px;
+}
+
+.workout-submit-btn {
+    padding: 12px 20px;
+    font-size: 1.2rem;
+    background-color: #DDA0DD; /* Purple color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%; /* Make the button full-width */
+}
+
+.workout-submit-btn:hover {
+    background-color: #dda0ddcc;
+}
+
+.workout-submit-btn:focus {
+    outline: none;
+}
+
+.workout-navigate-button {
+    margin-top: 3% !important;
+    background-color: #DDA0DD; /* Matching the main color */
+    color: white;
+    font-size: 1.2rem;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: auto;
+    margin: auto;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.workout-navigate-button:hover {
+    background-color: #dda0ddcc; /* Hover color */
+    transform: scale(1.05); /* Slight scale up on hover */
+}
+
+@media (max-width: 768px) {
+    .workout-form {
+        flex-direction: column;
+        align-items: center;
+    }
+    .workout-form-container {
+        width: 85%;
+    }
+    .workout-form-group {
+        width: 100%;
+    }
+
+    .workout-submit-btn {
+        width: auto; /* Remove full-width on smaller screens */
+    }
+}
