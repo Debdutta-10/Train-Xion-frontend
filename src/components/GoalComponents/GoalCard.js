@@ -73,6 +73,31 @@ const GoalCard = ({ goal, onDelete, onUpdate }) => {
     }
   };
 
+  const handleGoalDelete = async () => {
+    try {
+      const token = localStorage.getItem('token');
+      const response = await fetch(`http://localhost:8000/api/delgoal/${id}`, {
+        method: 'DELETE',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        },
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        toast.error("Error deleting goal: " + data.message);
+        return;
+      }
+
+      toast.success("Goal deleted successfully");
+      onDelete(id);  // Call the onDelete callback passed from the parent component
+    } catch (error) {
+      toast.error("Something went wrong while deleting the goal.");
+    }
+  };
+
+
   return (
     <div className="goal-card">
       <div className="goal-info">
@@ -91,7 +116,7 @@ const GoalCard = ({ goal, onDelete, onUpdate }) => {
         {/* Edit and Delete buttons */}
         <div className="goal-actions">
           <FaEdit className="goal-action-icon" onClick={() => setIsEditing(true)} />
-          <FaTrashAlt className="goal-action-icon" onClick={() => onDelete(id)} />
+          <FaTrashAlt className="goal-action-icon" onClick={handleGoalDelete} />
         </div>
       </div>
 

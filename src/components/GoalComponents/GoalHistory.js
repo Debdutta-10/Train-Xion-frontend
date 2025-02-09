@@ -11,7 +11,7 @@ const GoalHistory = () => {
     const fetchGoals = async () => {
       try {
         const token = localStorage.getItem('token');
-        
+
         const response = await fetch('http://localhost:8000/api/getallgoals', {
           method: 'GET',
           headers: {
@@ -38,13 +38,14 @@ const GoalHistory = () => {
     fetchGoals();
   }, []);
 
-  const handleGoalDelete = (goalId) => {
-    setGoals(prevGoals => prevGoals.filter(goal => goal.id !== goalId));
+  const handleDeleteGoal = (goalId) => {
+    setGoals((prevGoals) => prevGoals.filter(goal => goal.id !== goalId));
   };
+
 
   const handleUpdate = (updatedGoal) => {
     // Find the updated goal and update it in the state
-    setGoals(prevGoals => 
+    setGoals(prevGoals =>
       prevGoals.map(goal => goal.id === updatedGoal.id ? updatedGoal : goal)
     );
   };
@@ -62,8 +63,13 @@ const GoalHistory = () => {
       <h1 className="goal-h1">Goal History</h1>
       <div className="all-goals">
         {goals.length > 0 ? (
-          goals.map((goal) => (
-            <GoalCard key={goal.id} goal={goal} onDelete={handleGoalDelete} onUpdate={handleUpdate}/>
+          goals.map(goal => (
+            <GoalCard
+              key={goal.id}
+              goal={goal}
+              onDelete={handleDeleteGoal}  // Pass the delete handler
+              onUpdate={handleUpdate}  // Your update function
+            />
           ))
         ) : (
           <p>No goals found</p>
