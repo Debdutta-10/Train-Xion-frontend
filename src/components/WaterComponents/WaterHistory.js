@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import WaterCard from './WaterCard';
-import "../styles/WaterHistory.css";
+import "../../styles/WaterHistory.css";
 
 const WaterHistory = () => {
   const [waterLogs, setWaterLogs] = useState([]);

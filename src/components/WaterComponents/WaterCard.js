@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaTint } from 'react-icons/fa';
-import "../styles/WaterCard.css";
+import "../../styles/WaterCard.css";
 
 const WaterCard = ({ log }) => {
   const { date, waterIntake } = log;

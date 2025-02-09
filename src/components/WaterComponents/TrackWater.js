@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FaPlusCircle, FaEdit, FaHistory } from 'react-icons/fa';
-import "../styles/Water.css";
+import "../../styles/Water.css";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
@@ -197,7 +197,7 @@ const TrackWater = () => {
           </div>
         </div>
 
-        <div className="water-history-container">
+        <div className="goal-history-container">
           <button className="navigate-button" onClick={handleClick}>
             View Water History
             <FaHistory size={30} className="button-icon" />

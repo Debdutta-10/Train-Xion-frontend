@@ -5,11 +5,12 @@ import Register from './components/Register';
 import Dashboard from './components/Dashboard';
 import Login from './components/Login';
 import Navbar from './components/Navbar';
-import TrackNutrition from './components/TrackNutrition';
-import TrackWater from './components/TrackWater';
-import TrackGoals from './components/TrackGoals';
-import TrackWorkouts from './components/TrackWorkouts';
-import WaterHistory from './components/WaterHistory';
+import TrackNutrition from './components/NutriComponent/TrackNutrition';
+import TrackWater from './components/WaterComponents/TrackWater';
+import TrackGoals from './components/GoalComponents/TrackGoals';
+import TrackWorkouts from './components/WorkoutComponent/TrackWorkouts';
+import WaterHistory from './components/WaterComponents/WaterHistory';
+import GoalHistory from './components/GoalComponents/GoalHistory'
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function MainApp() {
           <Route path="/track-goals" element={<TrackGoals />} />
           <Route path="/track-workouts" element={<TrackWorkouts />} />
           <Route path="/water-history" element={<WaterHistory></WaterHistory>} />
+          <Route path="/goal-history" element={<GoalHistory></GoalHistory>} />
         </Routes>
       </div>
     </>
