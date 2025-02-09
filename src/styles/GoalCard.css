@@ -1,0 +1,152 @@
+.goal-card {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  margin: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.goal-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 65%;
+}
+
+.goal-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #4CAF50;
+  margin-bottom: 10px;
+}
+
+.goal-progress-line {
+  text-align: center !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.goal-progress {
+
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.goal-dates {
+  font-size: 1rem;
+  color: #777;
+}
+
+.goal-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.goal-action-icon {
+  font-size: 1.5rem;
+  color: #4CAF50;
+  cursor: pointer;
+}
+
+.goal-action-icon:hover {
+  color: #33c1f3;
+  /* Hover effect */
+}
+
+.progress-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.progress-circle {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.progress-ring {
+  transform: rotate(-90deg);
+  /* Start the progress from the top */
+}
+
+.progress-ring-background {
+  stroke: #ddd;
+}
+
+.progress-ring-bar {
+  transition: stroke-dasharray 0.3s ease;
+}
+
+.progress-text {
+  position: absolute;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+@media (max-width: 768px) {
+  .goal-card {
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    margin: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+/* Overlay for the background blur effect */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+  /* Apply blur effect */
+}
+
+/* Goal form container above the page content */
+.goal-form-edit-container {
+  position: fixed;
+  top: 20px;
+  /* Space from the top */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1001;
+  /* Make sure it's above the overlay */
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  width: 80%;
+  max-width: 500px;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Close button style for the edit form */
+.goal-form-close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 24px;
+  color: #888;
+  transition: color 0.3s ease;
+}
+
+.goal-form-close-btn:hover {
+  color: red;
+}

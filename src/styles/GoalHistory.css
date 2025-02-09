@@ -1,0 +1,30 @@
+.goal-history-container {
+  padding: 20px;
+  text-align: center;
+}
+
+.goal-h1 {
+  font-size: 2rem;
+  font-weight: 500;
+  color: #4CAF50;
+  margin-bottom: 20px;
+}
+
+.all-goals {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two columns for desktop */
+  gap: 5px;
+  justify-items: center; /* Centers the items within the grid */
+}
+
+.all-goals p {
+  font-size: 1.2rem;
+  color: #333;
+}
+
+/* Media Query for mobile devices */
+@media (max-width: 768px) {
+  .all-goals {
+    grid-template-columns: 1fr; /* One column for mobile */
+  }
+}

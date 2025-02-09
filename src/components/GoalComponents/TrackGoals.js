@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { FaDumbbell, FaHistory } from "react-icons/fa"; // Import the Dumbbell icon
 import "../../styles/Goals.css";
 import { useNavigate } from 'react-router-dom';
+import { toast } from "react-toastify";
 
 const TrackGoals = () => {
     const [goalName, setGoalName] = useState("");
@@ -12,10 +13,49 @@ const TrackGoals = () => {
 
     const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // Handle goal submission logic here
-        console.log("Goal added:", { goalName, targetValue, currentValue, startDate, endDate });
+        
+        // Format the data to match the expected API structure
+        const goalData = {
+            goalName,
+            targetValue: parseFloat(targetValue), // Ensure target value is a number
+            currentValue: parseFloat(currentValue), // Ensure current value is a number
+            startDate: new Date(startDate).toISOString(), // Convert to ISO format
+            endDate: new Date(endDate).toISOString(), // Convert to ISO format
+        };
+
+        try {
+            const token = localStorage.getItem('token'); // Retrieve token from local storage
+            const response = await fetch('http://localhost:8000/api/addgoal', {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(goalData), // Send the formatted goal data
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                // If goal is added successfully, reset the form or show a success message
+                console.log('Goal added successfully:', data);
+                toast.success('Goal added successfully!');
+                // You can also reset the form fields if needed
+                setGoalName("");
+                setTargetValue("");
+                setCurrentValue("");
+                setStartDate("");
+                setEndDate("");
+            } else {
+                console.error('Error adding goal:', data.message);
+                toast.error(`Error: ${data.message}`);
+            }
+        } catch (error) {
+            console.error('Error fetching data:', error);
+            toast.error('Failed to add goal. Please try again.');
+        }
     };
 
     const handleClick = () => {
