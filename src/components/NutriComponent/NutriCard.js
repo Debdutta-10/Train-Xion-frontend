@@ -22,6 +22,7 @@ const NutriCard = ({ log, onDelete, onUpdate }) => {
     const handleEditSubmit = async (e) => {
         e.preventDefault();
         const updatedLog = {
+            id: editLog.id,
             dayOfWeek: editLog.dayOfWeek,
             mealType: editLog.mealType,
             foodName: editLog.foodName,
@@ -32,11 +33,20 @@ const NutriCard = ({ log, onDelete, onUpdate }) => {
         toast.success('Food log updated successfully');
     };
 
+    const formatDate = (dateString) => {
+        const date = new Date(dateString);
+        const day = String(date.getDate()).padStart(2, '0'); // Add leading zero for day if necessary
+        const month = String(date.getMonth() + 1).padStart(2, '0'); // Get month (0-based index, so we add 1)
+        const year = date.getFullYear();
+        return `${day}/${month}/${year}`;
+    };
+    
     return (
         <div className="food-log-card">
             {!isEditing ? (
                 <>
                     <h3>{log.foodName}</h3>
+                    <h3>{formatDate(log.createdAt)}</h3>
                     <p>Meal: {log.mealType} | Day: {log.dayOfWeek}</p>
                     <p>Calories: {log.calories}</p>
                     <p>Protein: {log.protein}g | Carbs: {log.carbs}g | Fats: {log.fats}g</p>
@@ -52,7 +62,7 @@ const NutriCard = ({ log, onDelete, onUpdate }) => {
                     <div className="edit-form-container">
                         <FaTimes onClick={() => setIsEditing(false)} className="close-icon" />
                         <h2>Edit Food Log</h2>
-                        <form onSubmit={handleEditSubmit}>
+                        <form className='food-log-form' onSubmit={handleEditSubmit}>
                             <div>
                                 <label>Food Name</label>
                                 <input

@@ -96,7 +96,7 @@ const NutriHistory = () => {
 
     return (
         <div>
-            <h1>Nutrition History</h1>
+            <h1 className="food-log-h1">Nutrition History</h1>
             <div className="food-log-history">
                 {foodLogsHistory.length > 0 ? (
                     foodLogsHistory.map((log) => (

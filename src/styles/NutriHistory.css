@@ -1,9 +1,31 @@
 /* NutriHistory Styles */
+.food-log-h1 {
+  font-size: 2rem;
+  font-weight: 500;
+  text-align: center;
+  color: #FF8C69;
+  margin-bottom: 20px;
+}
+
 .food-log-history {
   padding: 20px;
   text-align: center;
   margin: 20px auto;
   width: 80%;
+  display: grid;
+  /* Enable grid layout */
+  grid-template-columns: repeat(2, 1fr);
+  /* 2 columns by default */
+  gap: 20px;
+  /* Space between grid items */
+}
+
+/* For mobile devices (small screens), use 1 column */
+@media (max-width: 768px) {
+  .food-log-history {
+    grid-template-columns: 1fr;
+    /* 1 column on mobile */
+  }
 }
 
 .food-log-history h1 {
