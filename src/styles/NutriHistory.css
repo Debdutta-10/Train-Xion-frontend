@@ -1,0 +1,77 @@
+/* NutriHistory Styles */
+.food-log-history {
+  padding: 20px;
+  text-align: center;
+  margin: 20px auto;
+  width: 80%;
+}
+
+.food-log-history h1 {
+  font-size: 2rem;
+  font-weight: 500;
+  color: white;
+  /* Title color */
+  margin-bottom: 20px;
+}
+
+.food-log-card {
+  background-color: #ffd5c8;
+  /* Card background color */
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: #333;
+  width: 80%;
+  margin-bottom: 15px;
+  text-align: left;
+  /* Align text to the left */
+}
+
+.food-log-card h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #FF8C69;
+  /* Food name in the theme color */
+}
+
+.food-log-card p {
+  font-size: 1.1rem;
+  color: #555;
+  margin: 5px 0;
+}
+
+.food-log-card p:nth-child(2) {
+  font-weight: bold;
+}
+
+.food-log-card p:nth-child(3) {
+  color: #333;
+  /* Make calorie info a bit darker for emphasis */
+}
+
+.food-log-card p:last-child {
+  color: #888;
+  /* Make macros color lighter */
+}
+
+.food-log-card p span {
+  font-weight: bold;
+}
+
+/* Add some responsive styles for mobile view */
+@media (max-width: 768px) {
+  .food-log-history {
+    width: 90%;
+    /* Adjust the width for smaller screens */
+  }
+
+  .food-log-card {
+    width: 100%;
+    /* Ensure cards are full width on smaller screens */
+  }
+
+  .food-log-card p {
+    font-size: 1rem;
+    /* Smaller text for mobile */
+  }
+}

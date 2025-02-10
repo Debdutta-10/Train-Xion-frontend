@@ -12,6 +12,7 @@ import TrackWorkouts from './components/WorkoutComponent/TrackWorkouts';
 import WaterHistory from './components/WaterComponents/WaterHistory';
 import GoalHistory from './components/GoalComponents/GoalHistory'
 import WorkoutHistory from './components/WorkoutComponent/WorkoutHistory';
+import NutriHistory from './components/NutriComponent/NutriHistory';
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function MainApp() {
           <Route path="/water-history" element={<WaterHistory></WaterHistory>} />
           <Route path="/goal-history" element={<GoalHistory></GoalHistory>} />
           <Route path="/workout-history" element={<WorkoutHistory></WorkoutHistory>} />
+          <Route path="/nutri-history" element={<NutriHistory></NutriHistory>} />
         </Routes>
       </div>
     </>
