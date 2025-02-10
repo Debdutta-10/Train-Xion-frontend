@@ -1,0 +1,40 @@
+.nutrition-cards {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 30px;
+  }
+  
+  .nutrition-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    text-align: center;
+  }
+  
+  .nutrition-card h3 {
+    font-size: 1.4rem;
+    color: #FF8C69;
+    margin-bottom: 15px;
+  }
+  
+  .nutrition-card p {
+    font-size: 1rem;
+    margin: 5px 0;
+  }
+  
+  /* Responsive Design: Single column for mobile */
+  @media (max-width: 768px) {
+    .nutrition-cards {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .nutrition-card {
+      width: 80%;
+      margin-bottom: 20px;
+    }
+  }

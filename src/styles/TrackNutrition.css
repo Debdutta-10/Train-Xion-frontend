@@ -1,0 +1,127 @@
+/* NutriHistory Styles */
+.food-log-container{
+    
+}
+.food-log-container h2{
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #FF8C69;
+    margin-bottom: 30px;
+}
+.form-container {
+    font-family: Arial, sans-serif;
+    background-color: #fff6f0;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 1000px;
+    margin: 30px auto;
+    text-align: center;
+  }
+  
+  .form-container h2 {
+    font-size: 2rem;
+    font-weight: 500;
+    color: #FF8C69;
+    margin-bottom: 30px;
+  }
+  
+  .nutrition-form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
+  }
+  
+  .nutrition-form-group-inline {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+  }
+  
+  .nutrition-form-group {
+    width: 20%;
+  }
+  
+  .nutrition-form-group label {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #333;
+  }
+  
+  .nutrition-form-group select,
+  .nutrition-form-group input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    transition: border 0.3s ease;
+  }
+  
+  .nutrition-form-group select:focus,
+  .nutrition-form-group input:focus {
+    border-color: #FF8C69;
+    outline: none;
+  }
+  
+  /* Round plus icon button */
+  .nutrition-submit-btn {
+    background-color: #FF8C69;
+    color: white;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+  }
+  
+  .nutrition-submit-btn:hover {
+    background-color: #e07b53;
+  }
+  
+  .nutrition-submit-btn:focus {
+    outline: none;
+  }
+  
+  /* Add some responsive styles for mobile view */
+  @media (max-width: 768px) {
+    .form-container {
+      width: 90%;
+      padding: 20px;
+    }
+  
+    .nutrition-form-group-inline {
+      flex-direction: column;
+      gap: 15px;
+      width: 100%;
+    }
+  
+    .nutrition-form-group {
+      width: 100%;
+    }
+  
+    .nutrition-form-group select,
+    .nutrition-form-group input {
+      font-size: 1rem;
+      padding: 8px;
+    }
+  
+    .nutrition-submit-btn {
+      width: 50px;
+      height: 50px;
+      font-size: 1rem;
+    }
+  }
+  
