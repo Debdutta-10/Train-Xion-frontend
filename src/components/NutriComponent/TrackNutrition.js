@@ -9,6 +9,7 @@ const TrackNutrition = () => {
   const [mealType, setMealType] = useState('');
   const [foodName, setFoodName] = useState('');
 
+
   // State to hold the nutrition data for each meal
   const [nutritionData, setNutritionData] = useState({
     breakfast: { calories: 0, protein: 0, carbs: 0, fat: 0 },
@@ -17,6 +18,11 @@ const TrackNutrition = () => {
     dinner: { calories: 0, protein: 0, carbs: 0, fat: 0 },
     total: { calories: 0, protein: 0, carbs: 0, fat: 0 }
   });
+
+  const getCurrentDayOfWeek = () => {
+    const currentDay = new Date().toLocaleString('en-US', { weekday: 'long' });
+    return currentDay;
+  };
 
   const fetchMealNutrition = async (mealType) => {
     try {
@@ -78,6 +84,7 @@ const TrackNutrition = () => {
     fetchMealNutrition('Lunch');
     fetchMealNutrition('Snacks');
     fetchMealNutrition('Dinner');
+    setDayOfWeek(getCurrentDayOfWeek());
     fetchTotalNutrition();
   }, []);
 
