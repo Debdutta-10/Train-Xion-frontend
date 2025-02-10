@@ -19,11 +19,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px; /* Space between icons and the text */
+    gap: 20px;
+    /* Space between icons and the text */
 }
 
-.goal-dumbbell-icon-left, .goal-dumbbell-icon-right {
-    font-size: 2.5rem;  /* Larger icon size */
+.goal-dumbbell-icon-left,
+.goal-dumbbell-icon-right {
+    font-size: 2.5rem;
+    /* Larger icon size */
     color: #4CAF50;
 }
 
@@ -35,14 +38,16 @@
 .goal-form {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px; /* Adds space between form groups */
+    gap: 20px;
+    /* Adds space between form groups */
     justify-content: space-between;
 }
 
 .goal-form-group {
     display: flex;
     flex-direction: column;
-    width: calc(33.33% - 20px); /* Adjusts width of form fields, makes them 3 across */
+    width: calc(33.33% - 20px);
+    /* Adjusts width of form fields, makes them 3 across */
 }
 
 .goal-container label {
@@ -82,7 +87,8 @@ input[type="number"]::-webkit-inner-spin-button {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    width: 100%; /* Make the button full-width */
+    width: 100%;
+    /* Make the button full-width */
 }
 
 .goal-submit-btn:hover {
@@ -95,7 +101,8 @@ input[type="number"]::-webkit-inner-spin-button {
 
 .goal-navigate-button {
     margin-top: 3% !important;
-    background-color: #4CAF50; /* Matching the main color */
+    background-color: #4CAF50;
+    /* Matching the main color */
     color: white;
     font-size: 1.2rem;
     padding: 12px 20px;
@@ -113,8 +120,10 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 .goal-navigate-button:hover {
-    background-color: #5cb85f; /* Hover color */
-    transform: scale(1.05); /* Slight scale up on hover */
+    background-color: #5cb85f;
+    /* Hover color */
+    transform: scale(1.05);
+    /* Slight scale up on hover */
 }
 
 @media (max-width: 768px) {
@@ -122,14 +131,17 @@ input[type="number"]::-webkit-inner-spin-button {
         flex-direction: column;
         align-items: center;
     }
+
     .goal-form-container {
         width: 85%;
     }
+
     .goal-form-group {
         width: 100%;
     }
 
     .goal-submit-btn {
-        width: auto; /* Remove full-width on smaller screens */
+        width: auto;
+        /* Remove full-width on smaller screens */
     }
 }

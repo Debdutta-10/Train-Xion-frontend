@@ -94,6 +94,32 @@
   .nutrition-submit-btn:focus {
     outline: none;
   }
+
+  .nutri-navigate-button {
+    margin-top: 3% !important;
+    background-color: #FF8C69;
+    color: white;
+    font-size: 1.2rem;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: auto;
+    margin: auto;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.nutri-navigate-button:hover {
+    background-color: #5cb85f;
+    /* Hover color */
+    transform: scale(1.05);
+    /* Slight scale up on hover */
+}
   
   /* Add some responsive styles for mobile view */
   @media (max-width: 768px) {
@@ -122,6 +148,13 @@
       width: 50px;
       height: 50px;
       font-size: 1rem;
+    }
+
+    .nutri-navigate-button{
+      padding: 5px;
+      font-size: 1rem;
+      width: 70%;
+      margin-bottom: 20px;
     }
   }
   

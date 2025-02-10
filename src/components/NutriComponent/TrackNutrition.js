@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { toast } from "react-toastify"; // For displaying notifications
-import { FaPlusCircle, FaCalendarAlt, FaUtensils } from 'react-icons/fa'; // Added icons
+import { FaPlusCircle, FaCalendarAlt, FaUtensils, FaHistory } from 'react-icons/fa'; // Added icons
 import TodayNutriCard from './TodayNutriCard';
 import "../../styles/TrackNutrition.css";
+import { useNavigate } from 'react-router-dom';
 
 const TrackNutrition = () => {
+  const navigate = useNavigate();
   const [dayOfWeek, setDayOfWeek] = useState('');
   const [mealType, setMealType] = useState('');
   const [foodName, setFoodName] = useState('');
@@ -22,6 +24,10 @@ const TrackNutrition = () => {
   const getCurrentDayOfWeek = () => {
     const currentDay = new Date().toLocaleString('en-US', { weekday: 'long' });
     return currentDay;
+  };
+
+  const handleClick = () => {
+    navigate('/nutri-history'); // Navigate to the water history page
   };
 
   const fetchMealNutrition = async (mealType) => {
@@ -206,6 +212,14 @@ const TrackNutrition = () => {
           <TodayNutriCard title="Dinner" nutrition={nutritionData.dinner} />
           <TodayNutriCard title="Total" nutrition={nutritionData.total} />
         </div>
+
+        <div className="nutri-history-container">
+          <button className="nutri-navigate-button" onClick={handleClick}>
+            View Your Nutritional Journey
+            <FaHistory size={30} className="button-icon" />
+          </button>
+        </div>
+
       </div>
     </>
   );
