@@ -8,7 +8,7 @@ const TodayNutriCard = ({ title, nutrition }) => {
       <p>Calories: {nutrition.calories}</p>
       <p>Protein: {nutrition.protein}g</p>
       <p>Carbs: {nutrition.carbs}g</p>
-      <p>Fat: {nutrition.fat}g</p>
+      <p>Fat: {nutrition.fats}g</p>
     </div>
   );
 };

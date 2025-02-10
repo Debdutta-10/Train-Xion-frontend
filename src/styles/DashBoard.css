@@ -1,0 +1,143 @@
+/* Dashboard.css */
+
+/* Global styling */
+.dashboard-container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header {
+    text-align: center;
+}
+
+.dashboard-cards {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.card {
+    background: #f4f4f4;
+    padding: 20px;
+    border-radius: 10px;
+    flex: 1;
+    min-width: 200px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card .icon {
+    font-size: 2.5rem;
+    align-items: center;
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+.charts {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.chart {
+    flex: 1;
+    min-width: 300px;
+}
+
+.food-logs-history {
+    margin-top: 40px;
+}
+
+.food-logs-history ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.food-logs-history li {
+    background: #f4f4f4;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 5px 0;
+}
+
+.nutrient-selector {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.nutrient-selector button {
+    background: #FF5733;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 5px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.nutrient-selector button:hover {
+    background: #e04a29;
+}
+
+.nutrition-stats {
+    background-color: #ffc0ad;
+    padding: 15px;
+    margin: 10px 0;
+    font-size: 1.6rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: white;
+    height: 70%;
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+    .dashboard-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .charts {
+        flex-direction: column;
+    }
+
+    .chart {
+        margin-bottom: 20px;
+    }
+
+    .food-logs-history ul {
+        padding-left: 10px;
+    }
+
+    /* Stack buttons vertically for smaller screens */
+    .nutrient-selector {
+        display: flex;
+        align-items: center;
+    }
+
+    .nutrient-selector button {
+        padding: 2px;
+        width: 22%;
+        font-size: 15px;
+        margin-bottom: 10px;
+    }
+}
+
+/* Tablet View */
+@media (max-width: 1024px) {
+    .dashboard-cards {
+        flex-direction: column;
+    }
+
+    .charts {
+        flex-direction: column;
+    }
+
+    .chart {
+        margin-bottom: 20px;
+    }
+}
