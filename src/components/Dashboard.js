@@ -95,7 +95,7 @@ const Dashboard = () => {
       if (!response.ok) {
         setError(data.message || 'Failed to fetch water log for today');
         console.error('Error fetching water log:', data);
-        toast.error(`Error: ${data.message || 'Failed to fetch water log for today'}`);
+        // toast.error(`Error: ${data.message || 'Failed to fetch water log for today'}`);
       } else {
         setError(null);
         // Set the fetched water log to the waterLevel state
