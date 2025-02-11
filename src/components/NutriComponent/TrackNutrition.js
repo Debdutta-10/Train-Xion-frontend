@@ -76,7 +76,7 @@ const TrackNutrition = () => {
           total: data.totalNutrients || { calories: 0, protein: 0, carbs: 0, fat: 0 }
         }));
       } else {
-        toast.error('Error fetching total nutrition data');
+        console.log('Error fetching total nutrition data');
       }
     } catch (error) {
       toast.error('Failed to fetch total nutrition data');

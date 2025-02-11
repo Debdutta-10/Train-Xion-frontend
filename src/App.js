@@ -1,6 +1,7 @@
 import './App.css';
 import './index.css';
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation, useNavigate } from 'react-router-dom';
+import { useEffect} from 'react';
 import Register from './components/Register';
 import Dashboard from './components/Dashboard';
 import Login from './components/Login';
@@ -24,7 +25,21 @@ function App() {
 
 function MainApp() {
   const location = useLocation();
-  const hideNavbar = location.pathname === '/login' || location.pathname === '/register';
+  const navigate = useNavigate();
+
+  const hideNavbar = (location.pathname === '/login' || location.pathname === '/register');
+
+  useEffect(() => {
+    const token = localStorage.getItem('token'); // Get token from local storage
+    if (token && (location.pathname === '/login' || location.pathname === '/register')) {
+      // If token exists, redirect to dashboard
+      navigate('/');
+    } else if (!token && location.pathname !== '/login' && location.pathname !== '/register') {
+      // If no token and trying to access a protected route, redirect to login
+      navigate('/login');
+    }
+    
+  }, [location, navigate]);
 
   return (
     <>

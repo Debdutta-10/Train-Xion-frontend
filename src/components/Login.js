@@ -46,18 +46,19 @@ const Login = () => {
                     <div className="mt-12 flex flex-col items-center">
                         <div className="w-full flex justify-between">
                             <button
-                                className="w-1/2 py-2 font-semibold bg-indigo-500 text-white rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out"
+                                className="w-1/2 py-2 font-semibold bg-indigo-500 text-white rounded-none hover:bg-indigo-700 transition-all duration-300 ease-in-out"
                                 onClick={() => navigate('/register')}
                             >
-                                Sign Up
+                                Sign-Up
                             </button>
                             <button
-                                className="w-1/2 py-2 font-semibold bg-gray-500 text-white rounded-lg hover:bg-gray-700 transition-all duration-300 ease-in-out"
+                                className="w-1/2 py-2 font-semibold bg-gray-500 text-white rounded-none hover:bg-gray-700 transition-all duration-300 ease-in-out"
                                 onClick={() => { }}
                             >
                                 Login
                             </button>
                         </div>
+
 
                         <h1 className="text-2xl xl:text-3xl font-extrabold mt-6">Login</h1>
 
