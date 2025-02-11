@@ -12,7 +12,7 @@ const WorkoutHistory = () => {
       try {
         const token = localStorage.getItem('token');
         
-        const response = await fetch('http://localhost:8000/api/getallworkouts', {
+        const response = await fetch('https://train-xion-backend.onrender.com/api/getallworkouts', {
           method: 'GET',
           headers: {
             'Authorization': `Bearer ${token}`,

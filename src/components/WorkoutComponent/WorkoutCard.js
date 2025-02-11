@@ -47,7 +47,7 @@ const WorkoutCard = ({ workout, onDelete, onUpdate }) => {
     try {
       const token = localStorage.getItem('token');
 
-      const response = await fetch(`http://localhost:8000/api/updworkout/${id}`, {
+      const response = await fetch(`https://train-xion-backend.onrender.com/api/updworkout/${id}`, {
         method: 'PUT',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -75,7 +75,7 @@ const WorkoutCard = ({ workout, onDelete, onUpdate }) => {
   const handleWorkoutDelete = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:8000/api/delworkout/${id}`, {
+      const response = await fetch(`https://train-xion-backend.onrender.com/api/delworkout/${id}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`,

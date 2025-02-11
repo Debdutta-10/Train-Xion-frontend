@@ -41,7 +41,7 @@ const TrackWorkouts = () => {
         try {
             const token = localStorage.getItem('token'); // Assuming you have a token stored in localStorage
 
-            const response = await fetch('http://localhost:8000/api/addworkout', {
+            const response = await fetch('https://train-xion-backend.onrender.com/api/addworkout', {
                 method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${token}`,
