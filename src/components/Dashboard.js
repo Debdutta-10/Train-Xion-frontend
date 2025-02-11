@@ -42,6 +42,7 @@ const Dashboard = () => {
         setFoodLogsHistory(data.foodLogs);
       } else {
         setError(data.message || 'Error fetching history');
+        window.location.reload();
       }
     } catch (error) {
       setError('Failed to fetch food log history');
@@ -76,6 +77,7 @@ const Dashboard = () => {
       }
     } catch (error) {
       toast.error('Failed to fetch total nutrition data');
+      window.location.reload();
       console.error('Error:', error);
     }
   };
