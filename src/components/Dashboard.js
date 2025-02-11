@@ -168,12 +168,30 @@ const Dashboard = () => {
   };
 
   useEffect(() => {
-    fetchWaterLogs();
-    fetchTodayWaterLog();
-    fetchTotalNutrition();
-    fetchFoodLogsHistory();
-    fetchWorkouts();
-  }, []);
+    // Fetch all the data
+    const fetchData = async () => {
+      await fetchWaterLogs();
+      await fetchTodayWaterLog();
+      await fetchTotalNutrition();
+      await fetchFoodLogsHistory();
+      await fetchWorkouts();
+    };
+
+    fetchData();
+
+    // Check if food logs are empty and if this is the first time refresh
+    if (foodLogsHistory.length === 0) {
+      const hasRefreshed = localStorage.getItem('hasRefreshed');
+
+      if (!hasRefreshed) {
+        // Set the flag in localStorage to prevent further refreshes
+        localStorage.setItem('hasRefreshed', 'true');
+        window.location.reload(); // Reload the page once
+      }
+    }
+
+  }, [foodLogsHistory]); // The effect runs whenever foodLogsHistory changes
+
 
   // Group food logs by day of the week and sum the nutrients for each day
   const getWeeklyNutrients = () => {
