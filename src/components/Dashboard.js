@@ -39,10 +39,9 @@ const Dashboard = () => {
       const data = await response.json();
 
       if (response.ok) {
-        setFoodLogsHistory(data.foodLogs);
+        setFoodLogsHistory(data.foodLogs);  // Set foodLogs to empty array or data from backend
       } else {
         setError(data.message || 'Error fetching history');
-        window.location.reload();
       }
     } catch (error) {
       setError('Failed to fetch food log history');
@@ -51,6 +50,7 @@ const Dashboard = () => {
       setLoading(false);
     }
   };
+
 
   const fetchTotalNutrition = async () => {
     try {
@@ -77,7 +77,6 @@ const Dashboard = () => {
       }
     } catch (error) {
       toast.error('Failed to fetch total nutrition data');
-      window.location.reload();
       console.error('Error:', error);
     }
   };
@@ -168,7 +167,6 @@ const Dashboard = () => {
   };
 
   useEffect(() => {
-    // Fetch all the data
     const fetchData = async () => {
       await fetchWaterLogs();
       await fetchTodayWaterLog();
@@ -179,18 +177,7 @@ const Dashboard = () => {
 
     fetchData();
 
-    // Check if food logs are empty and if this is the first time refresh
-    if (foodLogsHistory.length === 0) {
-      const hasRefreshed = localStorage.getItem('hasRefreshed');
-
-      if (!hasRefreshed) {
-        // Set the flag in localStorage to prevent further refreshes
-        localStorage.setItem('hasRefreshed', 'true');
-        window.location.reload(); // Reload the page once
-      }
-    }
-
-  }, [foodLogsHistory]); // The effect runs whenever foodLogsHistory changes
+  }, []);
 
 
   // Group food logs by day of the week and sum the nutrients for each day
@@ -204,6 +191,10 @@ const Dashboard = () => {
       Saturday: { calories: 0, protein: 0, carbs: 0, fats: 0 },
       Sunday: { calories: 0, protein: 0, carbs: 0, fats: 0 },
     };
+
+    if (foodLogsHistory.length === 0) {
+      return weeklyNutrients; // No logs, return zeros
+    }
 
     foodLogsHistory.forEach((log) => {
       if (weeklyNutrients.hasOwnProperty(log.dayOfWeek)) {
@@ -241,6 +232,7 @@ const Dashboard = () => {
     ],
   };
 
+
   // Render the component based on loading and error states
   if (loading) {
     return <div>Loading...</div>; // Show loading message or spinner
@@ -260,19 +252,20 @@ const Dashboard = () => {
         <div className="card food-log">
           <FaAppleAlt className="icon" />
           <h3>Food Logs</h3>
-          <p>{foodLogsHistory.length} entries</p>
+          <p>{foodLogsHistory.length > 0 ? `${foodLogsHistory.length} entries` : 'No food logs available'}</p>
         </div>
+
 
         <div className="card water-log">
           <FaWater className="icon" />
           <h3>Water Intake</h3>
-          <p>{waterLogs.length} logs</p>
+          <p>{waterLogs.length > 0 ? `${waterLogs.length} logs` : 'No water intake logs available'}</p>
         </div>
 
         <div className="card workout-log">
           <FaDumbbell className="icon" />
           <h3>Workouts</h3>
-          <p>{workouts.length} workouts</p>
+          <p>{workouts.length > 0 ? `${workouts.length} workouts` : 'No workout logs available'}</p>
         </div>
       </div>
 
@@ -291,10 +284,10 @@ const Dashboard = () => {
         <div className="chart">
           <h2>Daily Nutrition Summary</h2>
           <div className="nutrition-stats">
-            <p>Calories: {nutritionData.total.calories} kcal</p>
-            <p>Protein: {nutritionData.total.protein}g</p>
-            <p>Carbs: {nutritionData.total.carbs}g</p>
-            <p>Fat: {nutritionData.total.fats}g</p>
+            <p>Calories: {nutritionData.total.calories || 0} kcal</p>
+            <p>Protein: {nutritionData.total.protein || 0}g</p>
+            <p>Carbs: {nutritionData.total.carbs || 0}g</p>
+            <p>Fat: {nutritionData.total.fats || 0}g</p>
           </div>
         </div>
         <div className="chart charty-hydro">
