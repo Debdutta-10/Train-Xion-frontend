@@ -26,7 +26,7 @@ const Register = () => {
         }
 
         try {
-            const response = await axios.post('http://localhost:8000/api/signup', {
+            const response = await axios.post('https://train-xion-backend.onrender.com/api/signup', {
                 name,
                 email,
                 password,

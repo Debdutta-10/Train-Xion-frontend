@@ -48,7 +48,7 @@ const GoalCard = ({ goal, onDelete, onUpdate }) => {
     try {
       const token = localStorage.getItem('token');
 
-      const response = await fetch(`http://localhost:8000/api/updgoal/${id}`, {
+      const response = await fetch(`https://train-xion-backend.onrender.com/api/updgoal/${id}`, {
         method: 'PUT',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -76,7 +76,7 @@ const GoalCard = ({ goal, onDelete, onUpdate }) => {
   const handleGoalDelete = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:8000/api/delgoal/${id}`, {
+      const response = await fetch(`https://train-xion-backend.onrender.com/api/delgoal/${id}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`,

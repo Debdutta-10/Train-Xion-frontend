@@ -12,7 +12,7 @@ const NutriHistory = () => {
         const fetchFoodLogsHistory = async () => {
             try {
                 const token = localStorage.getItem('token');
-                const response = await fetch('http://localhost:8000/api/getallfoodlog', {
+                const response = await fetch('https://train-xion-backend.onrender.com/api/getallfoodlog', {
                     method: 'GET',
                     headers: {
                         'Authorization': `Bearer ${token}`,
@@ -42,7 +42,7 @@ const NutriHistory = () => {
     const handleDelete = async (id) => {
         try {
             const token = localStorage.getItem('token');
-            const response = await fetch(`http://localhost:8000/api/delfoodlog/${id}`, {
+            const response = await fetch(`https://train-xion-backend.onrender.com/api/delfoodlog/${id}`, {
                 method: 'DELETE',
                 headers: {
                     'Authorization': `Bearer ${token}`,
@@ -65,7 +65,7 @@ const NutriHistory = () => {
     const handleUpdate = async (updatedLog) => {
         try {
             const token = localStorage.getItem('token');
-            const response = await fetch(`http://localhost:8000/api/updfoodlog/${updatedLog.id}`, {
+            const response = await fetch(`https://train-xion-backend.onrender.com/api/updfoodlog/${updatedLog.id}`, {
                 method: 'PUT',
                 headers: {
                     'Authorization': `Bearer ${token}`,

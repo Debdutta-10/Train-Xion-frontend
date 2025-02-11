@@ -27,7 +27,7 @@ const TrackGoals = () => {
 
         try {
             const token = localStorage.getItem('token'); // Retrieve token from local storage
-            const response = await fetch('http://localhost:8000/api/addgoal', {
+            const response = await fetch('https://train-xion-backend.onrender.com/api/addgoal', {
                 method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${token}`,

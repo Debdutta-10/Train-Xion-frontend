@@ -12,7 +12,7 @@ export const fetchFoodLogsHistory = async (setFoodLogsHistory, setError, setLoad
 
         setLoading(true); // Start loading
 
-        const response = await axios.get('http://localhost:8000/api/getallfoodlog', {
+        const response = await axios.get('https://train-xion-backend.onrender.com/api/getallfoodlog', {
             headers: {
                 'Authorization': `Bearer ${token}`,
                 'Content-Type': 'application/json',

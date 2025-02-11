@@ -21,7 +21,7 @@ const Login = () => {
         }
 
         try {
-            const response = await axios.post('http://localhost:8000/api/login', { email, password });
+            const response = await axios.post('https://train-xion-backend.onrender.com/api/login', { email, password });
             if (response.status === 200) {
                 toast.success('Login successful!');
                 localStorage.setItem('token', response.data.token);

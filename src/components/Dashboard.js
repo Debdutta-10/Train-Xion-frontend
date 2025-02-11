@@ -28,7 +28,7 @@ const Dashboard = () => {
   const fetchFoodLogsHistory = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:8000/api/getallfoodlog', {
+      const response = await fetch('https://train-xion-backend.onrender.com/api/getallfoodlog', {
         method: 'GET',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -56,7 +56,7 @@ const Dashboard = () => {
       const token = localStorage.getItem('token');
       const date = new Date().toISOString().split('T')[0];
 
-      const response = await fetch('http://localhost:8000/api/getdatefoodlog?date=' + date, {
+      const response = await fetch('https://train-xion-backend.onrender.com/api/getdatefoodlog?date=' + date, {
         method: 'GET',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -83,7 +83,7 @@ const Dashboard = () => {
   const fetchTodayWaterLog = async () => {
     try {
       const token = localStorage.getItem('token'); // Get the token from localStorage
-      const response = await fetch('http://localhost:8000/api/getwaterlogforday?date=' + new Date().toISOString().split('T')[0], {
+      const response = await fetch('https://train-xion-backend.onrender.com/api/getwaterlogforday?date=' + new Date().toISOString().split('T')[0], {
         method: 'GET',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -113,7 +113,7 @@ const Dashboard = () => {
     try {
       const token = localStorage.getItem('token');
 
-      const response = await fetch('http://localhost:8000/api/getallwaterlog', {
+      const response = await fetch('https://train-xion-backend.onrender.com/api/getallwaterlog', {
         method: 'GET',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -142,7 +142,7 @@ const Dashboard = () => {
     try {
       const token = localStorage.getItem('token');
 
-      const response = await fetch('http://localhost:8000/api/getallworkouts', {
+      const response = await fetch('https://train-xion-backend.onrender.com/api/getallworkouts', {
         method: 'GET',
         headers: {
           'Authorization': `Bearer ${token}`,

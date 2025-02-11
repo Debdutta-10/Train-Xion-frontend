@@ -33,7 +33,7 @@ const TrackNutrition = () => {
   const fetchMealNutrition = async (mealType) => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:8000/api/totalNutritionForToday?mealType=${mealType}`, {
+      const response = await fetch(`https://train-xion-backend.onrender.com/api/totalNutritionForToday?mealType=${mealType}`, {
         method: 'GET',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -60,7 +60,7 @@ const TrackNutrition = () => {
       const token = localStorage.getItem('token');
       const date = new Date().toISOString().split('T')[0]; // Get today's date in YYYY-MM-DD format
 
-      const response = await fetch('http://localhost:8000/api/getdatefoodlog?date=' + date, {
+      const response = await fetch('https://train-xion-backend.onrender.com/api/getdatefoodlog?date=' + date, {
         method: 'GET',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -105,7 +105,7 @@ const TrackNutrition = () => {
 
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:8000/api/addfoodlog', {
+      const response = await fetch('https://train-xion-backend.onrender.com/api/addfoodlog', {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,

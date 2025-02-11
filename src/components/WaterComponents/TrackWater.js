@@ -14,7 +14,7 @@ const TrackWater = () => {
   const fetchTodayWaterLog = async () => {
     try {
       const token = localStorage.getItem('token'); // Get the token from localStorage
-      const response = await fetch('http://localhost:8000/api/getwaterlogforday?date=' + new Date().toISOString().split('T')[0], {
+      const response = await fetch('https://train-xion-backend.onrender.com/api/getwaterlogforday?date=' + new Date().toISOString().split('T')[0], {
         method: 'GET',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -64,7 +64,7 @@ const TrackWater = () => {
       // Convert waterLevel to a number before sending the request
       const waterIntake = Number(waterLevel); // Ensure it's a number
 
-      const response = await fetch('http://localhost:8000/api/addwaterlog', {
+      const response = await fetch('https://train-xion-backend.onrender.com/api/addwaterlog', {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -105,7 +105,7 @@ const TrackWater = () => {
       const today = new Date().toISOString().split('T')[0];
 
       // Construct the API URL with the date query parameter
-      const apiUrl = `http://localhost:8000/api/updwaterlog?date=${today}`;
+      const apiUrl = `https://train-xion-backend.onrender.com/api/updwaterlog?date=${today}`;
 
       const response = await fetch(apiUrl, {
         method: 'PUT',
