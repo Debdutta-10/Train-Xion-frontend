@@ -15,7 +15,15 @@ const Dashboard = () => {
   const [waterLevel, setWaterLevel] = useState(0);
   const [waterLogs, setWaterLogs] = useState([]);
   const [workouts, setWorkouts] = useState([]);
-
+  const [weeklyNutritionData, setWeeklyNutritionData] = useState({
+    monday: { calories: 0, protein: 0, carbs: 0, fats: 0 },
+    tuesday: { calories: 0, protein: 0, carbs: 0, fats: 0 },
+    wednesday: { calories: 0, protein: 0, carbs: 0, fats: 0 },
+    thursday: { calories: 0, protein: 0, carbs: 0, fats: 0 },
+    friday: { calories: 0, protein: 0, carbs: 0, fats: 0 },
+    saturday: { calories: 0, protein: 0, carbs: 0, fats: 0 },
+    sunday: { calories: 0, protein: 0, carbs: 0, fats: 0 },
+  });
   const [nutritionData, setNutritionData] = useState({
     total: { calories: 0, protein: 0, carbs: 0, fats: 0 }
   }); // To hold the nutrition data for today
@@ -23,7 +31,6 @@ const Dashboard = () => {
 
   const strokeDashArray = (waterLevel / 3700) * 100; // Percentage of the full circle
   const progressStrokeDashArray = `${strokeDashArray} 100`;
-
 
   const fetchFoodLogsHistory = async () => {
     try {
@@ -50,7 +57,6 @@ const Dashboard = () => {
       setLoading(false);
     }
   };
-
 
   const fetchTotalNutrition = async () => {
     try {
@@ -96,7 +102,6 @@ const Dashboard = () => {
       if (!response.ok) {
         setError(data.message || 'Failed to fetch water log for today');
         console.error('Error fetching water log:', data);
-        // toast.error(`Error: ${data.message || 'Failed to fetch water log for today'}`);
       } else {
         setError(null);
         // Set the fetched water log to the waterLevel state
@@ -166,6 +171,32 @@ const Dashboard = () => {
     }
   };
 
+  const fetchWeeklyNutritionData = async () => {
+    try {
+      const token = localStorage.getItem('token');
+      const response = await fetch('https://train-xion-backend.onrender.com/api/totalNutritionForWeek', {
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json',
+        },
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        console.log(data.weeklyNutrients); // Log to check what data is being fetched
+        setWeeklyNutritionData(data.weeklyNutrients);
+      } else {
+        setError(data.message || 'Error fetching weekly nutrition data');
+      }
+    } catch (error) {
+      setError('Failed to fetch weekly nutrition data');
+      console.error('Error:', error);
+      toast.error('An error occurred while fetching weekly nutrition data!');
+    }
+  };
+
   useEffect(() => {
     const fetchData = async () => {
       await fetchWaterLogs();
@@ -173,56 +204,26 @@ const Dashboard = () => {
       await fetchTotalNutrition();
       await fetchFoodLogsHistory();
       await fetchWorkouts();
+      await fetchWeeklyNutritionData();
     };
 
     fetchData();
-
   }, []);
 
-
-  // Group food logs by day of the week and sum the nutrients for each day
-  const getWeeklyNutrients = () => {
-    const weeklyNutrients = {
-      Monday: { calories: 0, protein: 0, carbs: 0, fats: 0 },
-      Tuesday: { calories: 0, protein: 0, carbs: 0, fats: 0 },
-      Wednesday: { calories: 0, protein: 0, carbs: 0, fats: 0 },
-      Thursday: { calories: 0, protein: 0, carbs: 0, fats: 0 },
-      Friday: { calories: 0, protein: 0, carbs: 0, fats: 0 },
-      Saturday: { calories: 0, protein: 0, carbs: 0, fats: 0 },
-      Sunday: { calories: 0, protein: 0, carbs: 0, fats: 0 },
-    };
-
-    if (foodLogsHistory.length === 0) {
-      return weeklyNutrients; // No logs, return zeros
-    }
-
-    foodLogsHistory.forEach((log) => {
-      if (weeklyNutrients.hasOwnProperty(log.dayOfWeek)) {
-        weeklyNutrients[log.dayOfWeek].calories += log.calories;
-        weeklyNutrients[log.dayOfWeek].protein += log.protein;
-        weeklyNutrients[log.dayOfWeek].carbs += log.carbs;
-        weeklyNutrients[log.dayOfWeek].fats += log.fats;
-      }
-    });
-
-    return weeklyNutrients;
-  };
-
-  // Prepare data for the weekly graph based on selected nutrient
-  const weeklyNutrients = getWeeklyNutrients();
+  // Ensure that the weeklyNutritionData is fully populated before accessing it
   const chartData = {
     labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
     datasets: [
       {
         label: `${selectedNutrient.charAt(0).toUpperCase() + selectedNutrient.slice(1)} Intake`,
         data: [
-          weeklyNutrients.Monday[selectedNutrient],
-          weeklyNutrients.Tuesday[selectedNutrient],
-          weeklyNutrients.Wednesday[selectedNutrient],
-          weeklyNutrients.Thursday[selectedNutrient],
-          weeklyNutrients.Friday[selectedNutrient],
-          weeklyNutrients.Saturday[selectedNutrient],
-          weeklyNutrients.Sunday[selectedNutrient],
+          weeklyNutritionData.monday[selectedNutrient],
+          weeklyNutritionData.tuesday[selectedNutrient],
+          weeklyNutritionData.wednesday[selectedNutrient],
+          weeklyNutritionData.thursday[selectedNutrient],
+          weeklyNutritionData.friday[selectedNutrient],
+          weeklyNutritionData.saturday[selectedNutrient],
+          weeklyNutritionData.sunday[selectedNutrient],
         ],
         borderColor: '#FF5733',
         backgroundColor: '#FF5733',
@@ -231,7 +232,6 @@ const Dashboard = () => {
       },
     ],
   };
-
 
   // Render the component based on loading and error states
   if (loading) {
@@ -254,7 +254,6 @@ const Dashboard = () => {
           <h3>Food Logs</h3>
           <p>{foodLogsHistory.length > 0 ? `${foodLogsHistory.length} entries` : 'No food logs available'}</p>
         </div>
-
 
         <div className="card water-log">
           <FaWater className="icon" />
@@ -290,6 +289,7 @@ const Dashboard = () => {
             <p>Fat: {nutritionData.total.fats || 0}g</p>
           </div>
         </div>
+
         <div className="chart charty-hydro">
           <h2>Daily Hydration Summary</h2>
           <div className="gauge-container">
@@ -325,8 +325,6 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
-
-
     </div>
   );
 };
